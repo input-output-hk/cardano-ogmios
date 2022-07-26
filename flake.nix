@@ -3,7 +3,7 @@
 
   inputs = {
     ogmios = {
-      url = "github:CardanoSolutions/ogmios/v5.5.1";
+      url = "github:CardanoSolutions/ogmios/v5.5.2";
       flake = false;
     };
     haskellNix = {
