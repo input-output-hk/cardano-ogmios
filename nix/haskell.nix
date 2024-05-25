@@ -27,7 +27,7 @@ haskell-nix: src: inputMap: haskell-nix.cabalProject' {
 
       -- Avoid `src/Control/Monad/Class/MonadSTM/Trans.hs:662:5: error: [GHC-54721]`
       -- Git issue:
-      -- , io-classes-mtl == 0.1.1.0
+      , io-classes-mtl == 0.1.1.0
   '';
 
   sha256map = {
