@@ -13,6 +13,23 @@ haskell-nix: src: inputMap: haskell-nix.cabalProject' {
       ];
   };
 
+  cabalProjectLocal = ''
+    index-state:
+      -- set the latest hackages and CHaP index states
+      , hackage.haskell.org 2024-05-23T22:20:49Z
+      , cardano-haskell-packages 2024-05-21T10:43:27Z
+
+    constraints:
+      -- Avoid `Setup.hs:75:30: error: [GHC-83865]`
+      -- Seemingly due to the freeze containing two cabal version which builds are made for:
+      -- any.Cabal ==3.10.3.0 || ==3.12.0.0
+      , Cabal == 3.10.3.0
+
+      -- Avoid `src/Control/Monad/Class/MonadSTM/Trans.hs:662:5: error: [GHC-54721]`
+      -- Git issue:
+      -- , io-classes-mtl == 0.1.1.0
+  '';
+
   sha256map = {
     # ogmios repo cabal.project missing srp nix hashes
     "https://github.com/CardanoSolutions/cardano-ledger"."837089f9b253c8a51b93a039b7e656e8ca5b6b70" = "sha256-tND3yRSaWqDnI8HVrj1FzvVg0umWQSFRhcRNuSecc+Y=";
