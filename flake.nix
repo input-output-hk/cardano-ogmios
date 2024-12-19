@@ -5,8 +5,8 @@
     ogmios = {
       type = "git";
       url = "https://github.com/CardanoSolutions/ogmios.git";
-      ref = "v6.10.0";
-      # ogmios 6.8 uses submodules for deps
+      ref = "refs/tags/v6.10.0";
+      # ogmios 6.8+ uses submodules for deps
       submodules = true;
       flake = false;
     };
